@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="utf-8">
+<title>Usluge i cene – LOOK by Mirijana Radušin</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF;color:#1C1C1C;font-family:'Jost',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#1C1C1C;text-decoration:none}
+a:hover{color:#8a6d00}
+.nv-burger{display:none;width:44px;height:44px;border:1px solid currentColor;background:transparent;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0}
+.nv-burger span{display:block;width:20px;height:1.5px;background:currentColor;transition:transform .3s ease,opacity .3s ease}
+.nv-burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.nv-burger.open span:nth-child(2){opacity:0}
+.nv-burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+@media (max-width:820px){
+  .nv-burger{display:flex}
+  .nv-links{display:none!important}
+  .nv-links.open{display:flex!important;flex-direction:column;align-items:flex-start;gap:24px!important;position:absolute;top:100%;left:0;right:0;padding:28px clamp(20px,5vw,72px) 36px;background:#FFFFFF;border-top:2px solid #F7D358;font-size:15px!important;z-index:40;box-shadow:0 18px 30px rgba(0,0,0,.15)}
+  .nv-links.open a{margin:0!important}
+}
+</style>
+</helmet>
+
+<nav style="position:relative;z-index:3;background:#FFFFFF;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;padding:28px clamp(20px,5vw,72px);border-bottom:1px solid #E7E7E7">
+  <a href="index.html" style="display:flex;flex-direction:column;line-height:1">
+    <span style="font-family:'Bodoni Moda',serif;font-size:30px;letter-spacing:.18em">LOOK</span>
+    <span style="font-size:10px;letter-spacing:.32em;margin-top:6px">BY MIRIJANA RADUŠIN</span>
+  </a>
+  <button type="button" class="nv-burger {{ navCls }}" onClick="{{ navToggle }}" aria-label="Meni" aria-expanded="{{ navOpen }}" style="color:#1C1C1C"><span></span><span></span><span></span></button>
+  <div class="nv-links {{ navCls }}" onClick="{{ navClose }}" style="display:flex;gap:clamp(16px,3vw,40px);font-size:13px;letter-spacing:.18em;text-transform:uppercase">
+    <a href="index.html#o-nama">O nama</a>
+    <a href="galerija.html">Galerija</a>
+    <a href="nega-kose.html">Nega kose</a><a href="usluge.html" style="border-bottom:2px solid #F7D358;padding-bottom:4px">Usluge</a>
+  </div>
+</nav>
+
+<section data-screen-label="Usluge – cenovnik" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr));min-height:100vh">
+  <div style="padding:clamp(56px,8vw,112px) clamp(20px,5vw,72px) clamp(80px,10vw,140px)">
+    <div style="font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:#8a6d00;margin-bottom:22px">Usluge i cene</div>
+    <h1 style="margin:0 0 56px;font-family:'Bodoni Moda',serif;font-weight:400;font-size:clamp(44px,5.4vw,80px);line-height:1;letter-spacing:-.01em">Sve što vaša <em>kosa</em> traži</h1>
+    <div style="display:flex;flex-direction:column">
+      <sc-for list="{{ services }}" as="s" hint-placeholder-count="14">
+        <div style="display:flex;flex-direction:column;gap:6px;padding:22px 0;border-bottom:1px solid #E7E7E7">
+          <div style="display:flex;align-items:baseline;gap:14px">
+            <span style="font-family:'Bodoni Moda',serif;font-size:13px;color:#8a6d00;min-width:24px">{{ s.n }}</span>
+            <span style="font-family:'Bodoni Moda',serif;font-size:clamp(22px,2vw,27px);line-height:1.2">{{ s.name }}</span>
+            <span style="flex:1;border-bottom:1px dotted #bdbdbd;transform:translateY(-6px);min-width:24px"></span>
+            <span style="font-size:16px;font-weight:500;white-space:nowrap">{{ s.price }}</span>
+          </div>
+          <sc-if value="{{ s.note }}" hint-placeholder-val="{{ false }}">
+            <div style="padding-left:38px;font-size:14px;font-weight:300;color:#5a5a5a">{{ s.note }}</div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+    <p style="margin:32px 0 0;font-size:14px;font-weight:300;color:#5a5a5a">Cene zavise od dužine i gustine kose. Konačnu cenu dogovaramo u salonu.</p>
+  </div>
+  <div style="position:relative;min-height:70vh;clip-path:inset(0);background:#FFFFFF">
+    <div style="position:fixed;top:0;right:0;width:50vw;height:100vh">
+      <img src="slike/usluge.jpg" alt="Češljanje duge plave kose" style="width:100%;height:100%;object-fit:contain;object-position:center bottom;display:block;background:#FFFFFF"></img>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Zakazivanje" style="position:relative;z-index:2;background:#F7D358;padding:clamp(80px,10vw,140px) clamp(20px,5vw,72px)">
+  <div style="max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap">
+    <h2 style="margin:0;font-family:'Bodoni Moda',serif;font-weight:400;font-size:clamp(38px,5vw,72px);line-height:1;max-width:760px;text-wrap:balance">Vaša sledeća frizura počinje ovde.</h2>
+    <a href="index.html#zakazivanje" style="display:inline-flex;align-items:center;gap:14px;background:#1C1C1C;color:#F7D358;padding:18px 32px;font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:500" style-hover="background:#FFFFFF;color:#1C1C1C">Zakaži <span>→</span></a>
+  </div>
+</section>
+
+<footer style="position:relative;z-index:2;background:#FFFFFF;border-top:1px solid #E7E7E7;padding:56px clamp(20px,5vw,72px);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap">
+  <div style="display:flex;flex-direction:column;line-height:1">
+    <span style="font-family:'Bodoni Moda',serif;font-size:28px;letter-spacing:.18em">LOOK</span>
+    <span style="font-size:10px;letter-spacing:.32em;margin-top:6px">BY MIRIJANA RADUŠIN</span>
+  </div>
+  <div style="font-size:14px;letter-spacing:.14em;text-transform:uppercase">Novi Sad · od 1999.</div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  _rv() {
+    const list = [
+      ['Muško šišanje', '1.200 RSD'],
+      ['Žensko šišanje', '1.800 RSD'],
+      ['Dečije šišanje', '900 RSD'],
+      ['Farbanje', 'od 3.500 RSD', 'Muško i žensko'],
+      ['Pramenovi', 'od 5.000 RSD'],
+      ['Skidanje boje', 'od 6.000 RSD'],
+      ['Toniranje kose', 'od 2.500 RSD'],
+      ['Nega kose', 'od 1.500 RSD'],
+      ['Blanširanje', 'od 4.500 RSD'],
+      ['Svečane frizure', 'od 3.000 RSD', 'Koktel, večernja, dnevna'],
+      ['Brazilska nega ispravljanja kose', 'od 9.000 RSD'],
+      ['Elumen', 'od 6.500 RSD'],
+      ['Mini-val', 'od 5.000 RSD'],
+      ['Olaplex', 'od 3.000 RSD'],
+      ['Babyliss lokne', 'od 2.000 RSD']
+    ];
+    return { services: list.map((s, k) => ({ n: String(k + 1).padStart(2, '0'), name: s[0], price: s[1], note: s[2] || '' })) };
+  }
+  renderVals() {
+    const open = !!(this.state && this.state.nav);
+    return { ...this._rv(), navCls: open ? 'open' : '', navOpen: open ? 'true' : 'false', navToggle: () => this.setState({ nav: !open }), navClose: () => { if (open) this.setState({ nav: false }); } };
+  }
+}
+</script>
+</body>
+</html>

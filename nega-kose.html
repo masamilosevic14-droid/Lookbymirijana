@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="utf-8">
+<title>Nega kose – LOOK by Mirijana Radušin</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#FFFFFF;color:#1C1C1C;font-family:'Jost',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#1C1C1C;text-decoration:none}
+a:hover{color:#8a6d00}
+
+/* Nega – jedna sekcija */
+.ng-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,460px) minmax(0,1fr);gap:clamp(32px,4vw,72px);align-items:stretch}
+.ng-col{display:flex;flex-direction:column;gap:clamp(40px,5vw,64px);padding:clamp(24px,4vw,64px) 0}
+.ng-col.l{text-align:right;align-items:flex-end}
+.ng-col.r{text-align:left;align-items:flex-start}
+.ng-item{max-width:380px;display:flex;flex-direction:column;gap:10px}
+.ng-col.l .ng-item{align-items:flex-end}
+.ng-item p{margin:0;font-size:15px;line-height:1.75;font-weight:300;color:#4a4a4a;text-align:justify;hyphens:auto}
+.ng-col.l .ng-item p{text-align-last:right}
+.ng-win-wrap{position:relative;min-height:min(130vh,1200px)}
+.ng-win-frame{position:absolute;inset:-14px 14px 14px -14px;border:2px solid #F7D358;pointer-events:none}
+.ng-win{position:absolute;inset:0;clip-path:inset(0);background:#F6F6F6}
+@media (max-width:900px){
+  .ng-grid{grid-template-columns:minmax(0,1fr)}
+  .ng-win-wrap{order:-1;min-height:72vh;margin:0 14px 0 14px}
+  .ng-col.l,.ng-col.r{text-align:left;align-items:flex-start;padding:0}
+  .ng-col.l .ng-item{align-items:flex-start}
+  .ng-col.l .ng-item p{text-align-last:left}
+}
+.nv-burger{display:none;width:44px;height:44px;border:1px solid currentColor;background:transparent;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0}
+.nv-burger span{display:block;width:20px;height:1.5px;background:currentColor;transition:transform .3s ease,opacity .3s ease}
+.nv-burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.nv-burger.open span:nth-child(2){opacity:0}
+.nv-burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+@media (max-width:820px){
+  .nv-burger{display:flex}
+  .nv-links{display:none!important}
+  .nv-links.open{display:flex!important;flex-direction:column;align-items:flex-start;gap:24px!important;position:absolute;top:100%;left:0;right:0;padding:28px clamp(20px,5vw,72px) 36px;background:#F6F6F6;border-top:2px solid #F7D358;font-size:15px!important;z-index:40;box-shadow:0 18px 30px rgba(0,0,0,.15)}
+  .nv-links.open a{margin:0!important}
+}
+</style>
+</helmet>
+
+<nav style="position:relative;z-index:30;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;padding:28px clamp(20px,5vw,72px);background:#F6F6F6;border-bottom:1px solid #E7E7E7">
+  <a href="index.html" style="display:flex;flex-direction:column;line-height:1">
+    <span style="font-family:'Bodoni Moda',serif;font-size:30px;letter-spacing:.18em">LOOK</span>
+    <span style="font-size:10px;letter-spacing:.32em;margin-top:6px">BY MIRIJANA RADUŠIN</span>
+  </a>
+  <button type="button" class="nv-burger {{ navCls }}" onClick="{{ navToggle }}" aria-label="Meni" aria-expanded="{{ navOpen }}" style="color:#1C1C1C"><span></span><span></span><span></span></button>
+  <div class="nv-links {{ navCls }}" onClick="{{ navClose }}" style="display:flex;gap:clamp(16px,3vw,40px);font-size:13px;letter-spacing:.18em;text-transform:uppercase;flex-wrap:wrap">
+    <a href="index.html#o-nama">O nama</a>
+    <a href="galerija.html">Galerija</a>
+    <a href="nega-kose.html" style="border-bottom:2px solid #F7D358;padding-bottom:4px">Nega kose</a>
+    <a href="usluge.html">Usluge</a>
+  </div>
+</nav>
+
+<section data-screen-label="Nega kose" style="background:#F6F6F6;padding:clamp(40px,6vw,80px) clamp(20px,5vw,72px) clamp(80px,10vw,140px)">
+  <div style="max-width:1400px;margin:0 auto">
+    <div data-reveal="" style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;margin-bottom:clamp(48px,6vw,88px)">
+      <div style="display:flex;align-items:center;gap:14px;font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:#6b5400"><span style="width:40px;height:1px;background:#6b5400"></span>Olaplex u salonu LOOK<span style="width:40px;height:1px;background:#6b5400"></span></div>
+      <h1 style="margin:0;max-width:1000px;font-family:'Bodoni Moda',serif;font-weight:400;font-size:clamp(40px,5.8vw,88px);line-height:1;letter-spacing:-.01em;text-wrap:balance">Olaplex – <em>jedan molekul</em> menja sve!</h1>
+      <p style="margin:0;max-width:640px;font-family:'Bodoni Moda',serif;font-style:italic;font-size:clamp(20px,2vw,26px);line-height:1.4;color:#1C1C1C;text-wrap:balance">Nema više oštećene kose prilikom farbanja – <span style="background:#F7D358;padding:0 6px">posvetlite se</span></p>
+    </div>
+
+    <div class="ng-grid">
+      <div class="ng-col l">
+        <div class="ng-item" data-reveal="">
+          <div style="display:flex;align-items:baseline;gap:12px"><span style="font-family:'Bodoni Moda',serif;font-style:italic;font-size:22px;color:#6b5400">01.</span><span style="font-family:'Bodoni Moda',serif;font-size:clamp(26px,2.4vw,34px);line-height:1">Popravlja</span></div>
+          <p>Pomaže da se obnove oštećene veze u vlaknu kose, posebno posle farbanja i blanširanja.</p>
+        </div>
+        <div class="ng-item" data-reveal="">
+          <div style="display:flex;align-items:baseline;gap:12px"><span style="font-family:'Bodoni Moda',serif;font-style:italic;font-size:22px;color:#6b5400">02.</span><span style="font-family:'Bodoni Moda',serif;font-size:clamp(26px,2.4vw,34px);line-height:1">Jača</span></div>
+          <p>Kosa postaje otpornija na fen, peglu i svakodnevno češljanje, pa se manje lomi.</p>
+        </div>
+        <div class="ng-item" data-reveal="">
+          <div style="display:flex;align-items:baseline;gap:12px"><span style="font-family:'Bodoni Moda',serif;font-style:italic;font-size:22px;color:#6b5400">03.</span><span style="font-family:'Bodoni Moda',serif;font-size:clamp(26px,2.4vw,34px);line-height:1">Hrani</span></div>
+          <p>Pogodan je za sve tipove kose, od tanke do guste, i ne opterećuje je.</p>
+        </div>
+        <div class="ng-item" data-reveal="">
+          <div style="display:flex;align-items:baseline;gap:12px"><span style="font-family:'Bodoni Moda',serif;font-style:italic;font-size:22px;color:#6b5400">04.</span><span style="font-family:'Bodoni Moda',serif;font-size:clamp(26px,2.4vw,34px);line-height:1">Čuva</span></div>
+          <p>Pomaže da sjaj i boja traju duže između dva termina u salonu.</p>
+        </div>
+      </div>
+
+      <div class="ng-win-wrap">
+        <div class="ng-win-frame" aria-hidden="true"></div>
+        <div ref="{{ winRef }}" class="ng-win">
+          <div style="position:fixed;top:0;left:{{ winLeft }};width:{{ winWidth }};height:100vh;pointer-events:none;background:#F6F6F6;display:flex;align-items:center;justify-content:center">
+            <img src="slike/olaplex-no4.jpg" alt="Olaplex No.4 Bond Maintenance šampon na peni" style="width:100%;height:auto;max-height:100%;object-fit:contain;display:block"></img>
+          </div>
+        </div>
+      </div>
+
+      <div class="ng-col r">
+        <div class="ng-item" data-reveal="">
+          <div style="display:flex;align-items:baseline;gap:12px"><span style="font-family:'Bodoni Moda',serif;font-style:italic;font-size:22px;color:#6b5400">01.</span><span style="font-size:17px;letter-spacing:.08em;text-transform:uppercase">No.1 Bond Multiplier</span></div>
+          <span style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#6b5400">U salonu · tokom farbanja</span>
+          <p>Dodaje se direktno u boju ili blanš i štiti veze u kosi dok traje farbanje, pa kosa ostaje jaka čak i kad se posvetljava.</p>
+        </div>
+        <div class="ng-item" data-reveal="">
+          <div style="display:flex;align-items:baseline;gap:12px"><span style="font-family:'Bodoni Moda',serif;font-style:italic;font-size:22px;color:#6b5400">02.</span><span style="font-size:17px;letter-spacing:.08em;text-transform:uppercase">No.2 Bond Perfector</span></div>
+          <span style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#6b5400">U salonu · posle farbanja</span>
+          <p>Nanosi se posle ispiranja boje i dodatno učvršćuje i obnavlja vlakno kose, za mekanu i sjajnu kosu.</p>
+        </div>
+        <div class="ng-item" data-reveal="">
+          <div style="display:flex;align-items:baseline;gap:12px"><span style="font-family:'Bodoni Moda',serif;font-style:italic;font-size:22px;color:#6b5400">03.</span><span style="font-size:17px;letter-spacing:.08em;text-transform:uppercase">No.3 Hair Perfector</span></div>
+          <span style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#6b5400">Kod kuće · jednom nedeljno</span>
+          <p>Nanosi se na vlažnu kosu pre pranja i čuva rezultat tretmana do vašeg sledećeg termina. Za svakodnevno pranje tu je šampon No.4.</p>
+        </div>
+      </div>
+    </div>
+
+    <div data-reveal="" style="display:flex;flex-direction:column;align-items:center;gap:18px;margin-top:clamp(56px,7vw,96px);text-align:center">
+      <span style="font-family:'Bodoni Moda',serif;font-style:italic;font-size:24px">Olaplex tretman u salonu</span>
+      <a href="index.html#zakazivanje" style="display:inline-flex;align-items:center;gap:14px;background:#1C1C1C;color:#F7D358;padding:18px 36px;font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:500" style-hover="background:#F7D358;color:#1C1C1C">Zakažite tretman <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<footer style="background:#F7D358;padding:56px clamp(20px,5vw,72px);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap">
+  <div style="display:flex;flex-direction:column;line-height:1">
+    <span style="font-family:'Bodoni Moda',serif;font-size:28px;letter-spacing:.18em">LOOK</span>
+    <span style="font-size:10px;letter-spacing:.32em;margin-top:6px">BY MIRIJANA RADUŠIN</span>
+  </div>
+  <div style="font-size:14px;letter-spacing:.14em;text-transform:uppercase">Novi Sad · od 1999.</div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  winRef = React.createRef();
+  measureWin() {
+    const el = this.winRef.current; if (!el) return;
+    const b = el.getBoundingClientRect(), v = { left: Math.round(b.left), width: Math.round(b.width) };
+    const c = this.state && this.state.win; if (!c || c.left !== v.left || c.width !== v.width) this.setState({ win: v });
+  }
+  componentDidMount() {
+    this.measureWin(); this._wT = setTimeout(() => this.measureWin(), 400);
+    this.onWR = () => this.measureWin(); window.addEventListener('resize', this.onWR);
+    try {
+      const els = [...document.querySelectorAll('[data-reveal]')];
+      if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        els.forEach(el => { el.style.opacity = '0'; el.style.transform = 'translateY(28px)'; el.style.transition = 'opacity 1s ease, transform 1s cubic-bezier(.2,.7,.2,1)'; });
+        let q = 0, t = 0;
+        this._rio = new IntersectionObserver(es => es.forEach(en => {
+          const el = en.target;
+          if (!en.isIntersecting) { el.style.transitionDelay = '0s'; el.style.opacity = '0'; el.style.transform = en.boundingClientRect.top < 0 ? 'translateY(-28px)' : 'translateY(28px)'; return; }
+          const now = Date.now(); if (now - t > 400) q = 0; t = now;
+          el.style.transitionDelay = (q++ * 0.14) + 's';
+          el.style.opacity = '1'; el.style.transform = 'none';
+        }), { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+        els.forEach(el => this._rio.observe(el));
+      }
+    } catch (err) {}
+  }
+  componentWillUnmount() { if (this._rio) this._rio.disconnect(); window.removeEventListener('resize', this.onWR); clearTimeout(this._wT); }
+  _rv() {
+    const w = (this.state && this.state.win) || null;
+    return { winRef: this.winRef, winLeft: w ? w.left + 'px' : '0px', winWidth: w ? w.width + 'px' : '100%' };
+  }
+  renderVals() {
+    const open = !!(this.state && this.state.nav);
+    return { ...this._rv(), navCls: open ? 'open' : '', navOpen: open ? 'true' : 'false', navToggle: () => this.setState({ nav: !open }), navClose: () => { if (open) this.setState({ nav: false }); } };
+  }
+}
+</script>
+</body>
+</html>

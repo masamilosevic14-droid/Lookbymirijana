@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="utf-8">
+<title>Galerija – LOOK by Mirijana Radušin</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF;color:#1C1C1C;font-family:'Jost',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#1C1C1C;text-decoration:none}
+a:hover{color:#8a6d00}
+.nv-burger{display:none;width:44px;height:44px;border:1px solid currentColor;background:transparent;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0}
+.nv-burger span{display:block;width:20px;height:1.5px;background:currentColor;transition:transform .3s ease,opacity .3s ease}
+.nv-burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.nv-burger.open span:nth-child(2){opacity:0}
+.nv-burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+@media (max-width:820px){
+  .nv-burger{display:flex}
+  .nv-links{display:none!important}
+  .nv-links.open{display:flex!important;flex-direction:column;align-items:flex-start;gap:24px!important;position:absolute;top:100%;left:0;right:0;padding:28px clamp(20px,5vw,72px) 36px;background:#FFFFFF;border-top:2px solid #F7D358;font-size:15px!important;z-index:40;box-shadow:0 18px 30px rgba(0,0,0,.15)}
+  .nv-links.open a{margin:0!important}
+}
+</style>
+</helmet>
+
+<nav style="position:relative;z-index:30;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;padding:28px clamp(20px,5vw,72px);border-bottom:1px solid #E7E7E7">
+  <a href="index.html" style="display:flex;flex-direction:column;line-height:1">
+    <span style="font-family:'Bodoni Moda',serif;font-size:30px;letter-spacing:.18em">LOOK</span>
+    <span style="font-size:10px;letter-spacing:.32em;margin-top:6px">BY MIRIJANA RADUŠIN</span>
+  </a>
+  <button type="button" class="nv-burger {{ navCls }}" onClick="{{ navToggle }}" aria-label="Meni" aria-expanded="{{ navOpen }}" style="color:#1C1C1C"><span></span><span></span><span></span></button>
+  <div class="nv-links {{ navCls }}" onClick="{{ navClose }}" style="display:flex;gap:clamp(16px,3vw,40px);font-size:13px;letter-spacing:.18em;text-transform:uppercase">
+    <a href="index.html#o-nama">O nama</a>
+    <a href="galerija.html" style="border-bottom:2px solid #F7D358;padding-bottom:4px">Galerija</a>
+    <a href="nega-kose.html">Nega kose</a><a href="usluge.html">Usluge</a>
+  </div>
+</nav>
+
+<section data-screen-label="Galerija" style="padding:clamp(56px,8vw,112px) clamp(20px,5vw,72px) clamp(80px,10vw,140px)">
+  <div style="max-width:1400px;margin:0 auto">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:48px">
+      <div>
+        <div style="font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:#8a6d00;margin-bottom:22px">Galerija</div>
+        <h1 style="margin:0;font-family:'Bodoni Moda',serif;font-weight:400;font-size:clamp(44px,5.4vw,80px);line-height:1">Naši <em>radovi</em></h1>
+      </div>
+      <p style="margin:0;max-width:360px;font-size:15px;line-height:1.7;font-weight:300;color:#5a5a5a">Kliknite na sličicu ili koristite strelice da listate fotografije.</p>
+    </div>
+
+    <div style="background:#E7E7E7;padding:12px;box-sizing:border-box;border:3px solid #F7D358">
+      <div style="display:flex;align-items:center;gap:8px">
+        <button type="button" onClick="{{ stripLeft }}" aria-label="Pomeri sličice levo" style="flex:0 0 36px;height:56px;border:0;background:transparent;color:#1C1C1C;cursor:pointer;font-size:14px">◀</button>
+        <div ref="{{ stripRef }}" style="flex:1;min-width:0;display:flex;gap:6px;overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none;padding:3px 0">
+          <sc-for list="{{ thumbs }}" as="t" hint-placeholder-count="12">
+            <button type="button" onClick="{{ t.go }}" aria-label="{{ t.label }}" aria-current="{{ t.current }}" style="flex:0 0 auto;width:72px;height:50px;padding:0;border:0;cursor:pointer;background:#d4d4d4;outline:2px solid {{ t.ring }};outline-offset:-2px;opacity:{{ t.opacity }};transition:opacity .3s ease" style-hover="opacity:1">
+              <img src="{{ t.src }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></img>
+            </button>
+          </sc-for>
+        </div>
+        <button type="button" onClick="{{ stripRight }}" aria-label="Pomeri sličice desno" style="flex:0 0 36px;height:56px;border:0;background:transparent;color:#1C1C1C;cursor:pointer;font-size:14px">▶</button>
+      </div>
+
+      <div style="position:relative;margin-top:12px;height:clamp(360px,72vh,860px);background:#E7E7E7;overflow:hidden">
+        <sc-for list="{{ slides }}" as="s" hint-placeholder-count="4">
+          <img src="{{ s.src }}" alt="{{ s.alt }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:{{ s.opacity }};transition:opacity .6s ease"></img>
+        </sc-for>
+        <button type="button" onClick="{{ prev }}" aria-label="Prethodna fotografija" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);width:52px;height:52px;border:1px solid rgba(247,211,88,.6);background:rgba(28,28,28,.6);color:#F7D358;cursor:pointer;font-size:20px" style-hover="background:#F7D358;color:#1C1C1C">←</button>
+        <button type="button" onClick="{{ next }}" aria-label="Sledeća fotografija" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);width:52px;height:52px;border:1px solid rgba(247,211,88,.6);background:rgba(28,28,28,.6);color:#F7D358;cursor:pointer;font-size:20px" style-hover="background:#F7D358;color:#1C1C1C">→</button>
+        <div style="position:absolute;right:20px;bottom:16px;font-size:13px;letter-spacing:.14em;color:#E7E7E7;background:rgba(28,28,28,.6);padding:6px 10px">{{ counter }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="background:#F7D358;padding:56px clamp(20px,5vw,72px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));align-items:center;justify-items:center;gap:24px">
+  <div style="display:flex;flex-direction:column;line-height:1;justify-self:start">
+    <span style="font-family:'Bodoni Moda',serif;font-size:28px;letter-spacing:.18em">LOOK</span>
+    <span style="font-size:10px;letter-spacing:.32em;margin-top:6px">BY MIRIJANA RADUŠIN</span>
+  </div>
+  <a href="index.html#zakazivanje" style="display:inline-flex;align-items:center;gap:14px;background:#1C1C1C;color:#F7D358;padding:18px 40px;font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;transition:background .3s ease,color .3s ease" style-hover="background:#FFFFFF;color:#1C1C1C">Zakaži <span aria-hidden="true">→</span></a>
+  <div style="font-size:14px;letter-spacing:.14em;text-transform:uppercase;justify-self:end">Novi Sad · od 1999.</div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  PHOTOS = [
+    'slike/rad-01.jpg',
+    'slike/rad-02.jpg',
+    'slike/rad-03.jpg',
+    'slike/rad-04.jpg',
+    'slike/galerija-05.jpg',
+    'slike/galerija-06.jpg',
+    'slike/galerija-07.jpg',
+    'slike/galerija-08.jpg',
+    'slike/galerija-09.jpg',
+    'slike/galerija-10.jpg',
+    'slike/galerija-11.jpg',
+    'slike/galerija-12.jpg',
+    'slike/galerija-13.jpg',
+    'slike/galerija-14.jpg',
+    'slike/galerija-15.jpg'
+  ];
+  state = { i: 0 };
+  stripRef = React.createRef();
+  go(i) { const n = this.PHOTOS.length; this.setState({ i: (i + n) % n }, () => this.center()); }
+  center() {
+    const el = this.stripRef.current; if (!el) return;
+    const c = el.children[this.state.i]; if (!c) return;
+    el.scrollTo({ left: c.offsetLeft - el.offsetLeft - el.clientWidth / 2 + c.clientWidth / 2, behavior: 'smooth' });
+  }
+  componentDidMount() {
+    this.onKey = e => { if (e.target && /INPUT|TEXTAREA|SELECT/.test(e.target.tagName)) return; if (e.key === 'ArrowRight') this.go(this.state.i + 1); if (e.key === 'ArrowLeft') this.go(this.state.i - 1); };
+    window.addEventListener('keydown', this.onKey);
+  }
+  componentWillUnmount() { window.removeEventListener('keydown', this.onKey); }
+  _rv() {
+    const i = this.state.i, n = this.PHOTOS.length;
+    const scroll = d => () => { const el = this.stripRef.current; if (el) el.scrollBy({ left: d * el.clientWidth * 0.8, behavior: 'smooth' }); };
+    return {
+      stripRef: this.stripRef,
+      thumbs: this.PHOTOS.map((src, k) => ({ src, label: 'Fotografija ' + (k + 1), current: k === i ? 'true' : 'false', ring: k === i ? '#F7D358' : 'transparent', opacity: k === i ? 1 : 0.55, go: () => this.go(k) })),
+      slides: this.PHOTOS.map((src, k) => ({ src, alt: 'Rad salona ' + (k + 1), opacity: k === i ? 1 : 0 })),
+      prev: () => this.go(i - 1), next: () => this.go(i + 1),
+      stripLeft: scroll(-1), stripRight: scroll(1),
+      counter: (i + 1) + ' / ' + n
+    };
+  }
+  renderVals() {
+    const open = !!(this.state && this.state.nav);
+    return { ...this._rv(), navCls: open ? 'open' : '', navOpen: open ? 'true' : 'false', navToggle: () => this.setState({ nav: !open }), navClose: () => { if (open) this.setState({ nav: false }); } };
+  }
+}
+</script>
+</body>
+</html>
