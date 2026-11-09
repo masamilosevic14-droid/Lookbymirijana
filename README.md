@@ -10,6 +10,9 @@ Statičan sajt, spreman za GitHub Pages.
 
 Fotografije su u folderu `slike/`, a `support.js` pokreće interaktivne delove (meni, galerija, recenzije, zakazivanje).
 
+## Jezici (SR / EN)
+Sajt je dvojezičan: dugme **SR / EN** u meniju menja jezik na svim stranicama i pamti izbor. Engleska verzija se može otvoriti i direktno dodavanjem `?lang=en` na adresu (npr. `.../index.html?lang=en`). Svi prevodi su u fajlu `i18n.js` — tu se menja ili dodaje tekst.
+
 ## Objavljivanje na GitHub Pages
 1. Napravite novi repozitorijum na GitHub-u (npr. `look-salon`).
 2. Otpremite SAV sadržaj ovog foldera u koren repozitorijuma (Add file → Upload files).
