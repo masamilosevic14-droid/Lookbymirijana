@@ -676,7 +676,7 @@ class Component extends DCLogic {
       const L = window.L, pos = [45.2593992, 19.8298368];
       const map = this._map = L.map(el, { center: pos, zoom: 18, scrollWheelZoom: false, zoomControl: false, attributionControl: true });
       L.control.zoom({ position: 'topright' }).addTo(map);
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', { maxZoom: 20, subdomains: 'abcd', attribution: '&copy; OpenStreetMap &copy; CARTO' }).on('tileload', () => { if (!this.state.mapLive) this.setState({ mapLive: true }); }).addTo(map);
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>' }).on('tileload', () => { if (!this.state.mapLive) this.setState({ mapLive: true }); }).addTo(map);
       const icon = L.divIcon({ className: '', iconSize: [0, 0], html:
         '<div style="position:absolute;transform:translate(-50%,-100%);display:flex;flex-direction:column;align-items:center">' +
         '<div style="background:#1C1C1C;color:#FFFFFF;padding:12px 18px;display:flex;flex-direction:column;align-items:center;line-height:1;border:1px solid #F7D358;box-shadow:0 10px 24px rgba(0,0,0,.4)">' +
